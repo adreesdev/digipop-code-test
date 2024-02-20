@@ -9,6 +9,7 @@ interface Theme {
         background: {
             default: string;
             paper: string;
+            input: string;
         };
     };
     dark: {
@@ -18,6 +19,7 @@ interface Theme {
         background: {
             default: string;
             paper: string;
+            input: string;
         };
     };
 }
@@ -29,7 +31,8 @@ const themeObj: Theme = {
         },
         background: {
             default: '#fff',
-            paper: '#fdfdfd',
+            paper: '#D3D3D3',
+            input: '#D3D3D3',
         },
     },
     dark: {
@@ -38,7 +41,8 @@ const themeObj: Theme = {
         },
         background: {
             default: '#000',
-            paper: '#151515',
+            paper: '#131313',
+            input: '#000',
         },
     },
 };
@@ -52,8 +56,16 @@ export const createCustomTheme = (mode: PaletteMode) =>
         typography: {
             fontFamily: ['"Poppins"', 'sans-serif'].join(','),
             h1: {
-                fontFamily: '"Squada One", sans-serif',
+                fontFamily: '"Poppins", sans-serif',
                 fontSize: '4rem',
+            },
+            h2: {
+                fontFamily: '"Poppins", sans-serif',
+                fontSize: '4rem',
+            },
+            h3: {
+                fontFamily: '"Poppins", sans-serif',
+                fontSize: '3rem',
             },
             h4: {
                 fontFamily: '"Poppins", sans-serif',
@@ -86,6 +98,19 @@ export const createCustomTheme = (mode: PaletteMode) =>
                                     'linear-gradient(97.01deg, #50A6ED 8.16%, #6C7DEB 103.71%)',
                             },
                         },
+                    },
+                ],
+            },
+            MuiPaper: {
+                variants: [
+                    {
+                        props: { variant: 'outlined' },
+                        style: (theme) => ({
+                            boxShadow: `0px 0px 10px 0px ${theme.theme.palette.mode === 'dark' ? '#000' : '#D3D3D3'}`,
+                            background: 'transparent',
+                            border: 'none',
+                            borderRadius: '7px',
+                        }),
                     },
                 ],
             },
