@@ -4,21 +4,18 @@ import storage from 'redux-persist/lib/storage';
 
 import themeSlice from './features/themeSlice';
 import userSlice from './features/userSlice';
+import todoSlice from './features/todoSlice';
 
 const userPersistConfig = {
     key: 'user',
     storage: storage,
     whitelist: ['token'],
 };
-const themePersistConfig = {
-    key: 'theme',
-    storage: storage,
-    whitelist: ['mode'],
-};
 
 const rootReducer = combineReducers({
-    theme: persistReducer(themePersistConfig, themeSlice),
+    theme: themeSlice,
     user: persistReducer(userPersistConfig, userSlice),
+    todo: todoSlice,
 });
 
 export const makeStore = () => {
