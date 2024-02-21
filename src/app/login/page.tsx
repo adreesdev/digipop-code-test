@@ -23,7 +23,7 @@ interface User {
     password: string;
 }
 
-export default function Login() {
+export default function Signup() {
     const { loading, token } = useAppSelector((state) => state.user);
 
     const { register, handleSubmit } = useForm<User>();
